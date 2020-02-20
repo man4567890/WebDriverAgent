@@ -613,7 +613,8 @@
 
 + (id<FBResponsePayload>)handleKeys:(FBRouteRequest *)request
 {
-  NSString *textToType = [request.arguments[@"value"] componentsJoinedByString:@""];
+  NSString *textToType = request.arguments[@"value"];
+  //NSString *textToType = [request.arguments[@"value"] componentsJoinedByString:@""];
   NSUInteger frequency = [request.arguments[@"frequency"] unsignedIntegerValue] ?: [FBConfiguration maxTypingFrequency];
   NSError *error;
   if (![FBKeyboard typeText:textToType frequency:frequency error:&error]) {
