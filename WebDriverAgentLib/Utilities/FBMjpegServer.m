@@ -188,10 +188,10 @@ static long count = 0;
   if(!result){
     id xcScreen = NSClassFromString((@"XCUIScreen"));
     if(xcScreen){
-      result = [xcScreen valueForKeyPath:@"mainScreen.screenshot.PNGRepresentation"];
+      result = (BOOL) [xcScreen valueForKeyPath:@"mainScreen.screenshot.PNGRepresentation"];
     }
     else{
-      result = [[XCAXClient_iOS sharedClient] screenshotData];
+      result = (BOOL) [[XCAXClient_iOS sharedClient] screenshotData];
     }
   }
   return result;
